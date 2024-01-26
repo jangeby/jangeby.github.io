@@ -200,6 +200,26 @@
                   <a href="https://hstspreload.org/">Click here..</a> 
 			        <br>
                 </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Cookie without SameSite, Httponly dan Secure Attribute</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: Setting cookie tersebut agar memiliki flag samesite dengan attributes yang dapat disesuaikan sendiri (bisa menggunakan lax, strict, atau none). Penambahan cookie bisa dilakukan dalam server yang digunakan contoh seperti nginx atau apache tergantung pemakaian. Contoh penambahan bisa seperti berikut :
+                  <br>
+                  server { 
+                    <br>
+                    location /wait {
+                      <br>
+                      proxy_cookie_path / "/; secure; httponly; samesite=lax atau strict"; <br>
+                    } <br>  
+                  }
+                  <br>
+                  Location : Server, HTTP.
+              <br>
+                  Referensi : 
+                  <a href="https://copyprogramming.com/howto/setting-samesite-none-on-nginx-reverse-proxy">Click here..</a> 
+			        <br>
+                </p>
                 <!-- <div class="tm-next">
                   <a href="OWASP-API-Security-Cheklist.html" class="tm-intro-text tm-btn-primary">Open Doc</a></a>
                 </div> -->
