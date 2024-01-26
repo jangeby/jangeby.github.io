@@ -35,10 +35,10 @@
                   <a class="nav-link tm-nav-link" href="#introduction">Introduction</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link tm-nav-link" href="#work">My Documentation</a>
+                  <a class="nav-link tm-nav-link" href="#work">Documentation</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link tm-nav-link" href="#contact">Contact Us</a>
+                  <a class="nav-link tm-nav-link" href="#contact">Contact</a>
               </li>                    
             </ul>
           </div>        
@@ -72,145 +72,171 @@
             <div class="tm-intro-text-container">
                 <h2 class="tm-text-primary mb-4 tm-section-title">Introduction</h2>
                 <p class="mb-4 tm-intro-text">
-                  The Town is <strong>simple CSS template</strong> built on Bootstrap v4.1.3 
-                  and this is a little parallax layout that you can use for your websites.
+                  Informasi terkait hasil temuan dan dokumentasi scaning dan lainya terkait tenable IO/SC. Dalam dokumentasi artikel ini
+		beberapa informasi belum tentu sudah baku, masih ada kemungkinan penambahan atau pengurangan property tergantung akan kebutuhan dan hasil solving Team tenable.
               </p>
                 <p class="mb-5 tm-intro-text">
-                  Please tell your friends about our site 
-                  <a rel="nofollow" href="https://templatemo.com">templatemo</a>. Thank you.
-                  Curabitur dapibus tristique enim a imperdiet. Etiam
-              tristique sem sed condimentum posuere. </p>
+                  Hubungi kami bila ada masukin unix untuk perkembangan lebih lanjut terkait artikel tenable ini. 
+                  Best Regard and Thank you,
+			        <br>
+		        <bold>Author</bold>
+                </p>
                 <div class="tm-next">
                   <a href="#work" class="tm-intro-text tm-btn-primary">Read More</a>
                 </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="row tm-section-pad-top">
-          <div class="col-lg-4">
-            <i class="fas fa-4x fa-bus text-center tm-icon"></i>
-            <h4 class="text-center tm-text-primary mb-4">Curabitur at elit eu risus</h4>
-            <p>
-              Sed ultrices sit amet mi eu malesuada. Cras ultricies gravida
-              nisi, ac pellentesque nunc tincidunt quis. Aenean at ornare lacus.
-              Duis imperdiet lacus justo.
-            </p>
+<!-- My Document -->
+<section id="work" class="tm-section-pad-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="tm-intro-text-container">
+              <h2 class="tm-text-primary mb-4 tm-section-title">Documentation</h2>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Missing 'X-Frame-Options' Header</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: menambahkan header X-Frame-Options pada page tersebut dan beri value (*Sameorigin, none dll).
+                  <br>
+                  Location : Server, HTTP.
+              <br>
+                  Referensi : 
+                  <a href="http://support.microsoft.com/en-us/office/mitigating-framesniffing-with-the-x-frame-options-header-1911411b-b51e-49fd-9441-e8301dcdcd79">Click here..</a> 
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Missing 'X-Content-Type-Options' Header</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi : Menambahkan'X-Content-Type-Options' dengan nilai 'nosniff' ke semua konfigurasi server web (Domain) yang tersedia dan memastikan aplikasi/server web terimplementasi header Tipe Konten dengan tepat
+                  <br>
+                  Location : Server, HTTP.
+              <br>
+                  Referensi : 
+                  <a href="https://hackerone.com/reports/369979">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">HTTP Header Information Disclosure</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi : 
+                  Disarankan untuk tidak menampilkan server tersebut atau bilamana server ingin ditampilkan sebainya rubah nama server.
+                  Melakukan remove pada header tersebut, yaitu header:
+                  - X-Powered-By: PHP/8.1.25
+                  - Server: openresty, Apache/2.4.1 Debian, Nginx/1.18 (*Contoh Hosting Server)
+                  <br><br>
+                  Berikut ini contoh informasi yang diungkapkan di header Server saat mengakses situs web yang dihosting di Apache : <br>
+                  Server: Apache/2.4.51 Debian (*exapmle server) <br>
+                  Ini dengan jelas mengungkapkan teknologi server, nomor versi dan sistem operasi apa yang digunakan. Untuk menghapus informasi ini dari header respons, tambahkan baris berikut ke file konfigurasi Apache.  Contohnya dengan mengubah file /etc/apache2/apache2.conf, namun file bisa berbeda tergantung pada platform dan konfigurasi setiap developer menyimpanya. <br>
+                  ServerTokens Prod <br>
+                  ServerSignature Off (bisa di add di server,http,location) <br>
+                  Setelah menyimpan file konfigurasi, diperlukan restart server. <br>
+                  service apache2 restart
+                  <br><br>
+                  Untuk Server Nginx berikut langkahnya <br>
+                  Server: Nginx/1.18.0 (*example server) <br>
+                  Untuk menghapus informasi ini dari header respons, tambahkan baris berikut ke file konfigurasi nginx.  Contohnya mengubah file /etc/nginx/nginx.conf. (*Noted :File dir berbeda – beda, sesuaikan dengan dir yang dev gunakan.) <br>
+                  server_tokens off; (bisa di add di server,http,location) <br>
+                  Setelah itu simpan konfigurasi tersebut, lalu restart server. <br>
+                  service nginx restart
+                  <br><br>
+                  Location : Server
+              <br>
+                  Referensi : 
+                  <a href="https://www.getpagespeed.com/server-setup/nginx/how-to-remove-the-server-header-in-nginx">Click here..</a>   
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Missing 'X-Content-Type-Options' Header</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi : Menambahkan'X-Content-Type-Options' dengan nilai 'nosniff' ke semua konfigurasi server web (Domain) yang tersedia dan memastikan aplikasi/server web terimplementasi header Tipe Konten dengan tepat
+                  <br>
+                  Location : Server, HTTP.
+              <br>
+                  Referensi : 
+                  <a href="https://hackerone.com/reports/369979">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Host Header Injection </h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi : Mengganti header Host dengan header server_name atau bisa dengan melakukan beberapa penyesuaian pada /etc/httpd/conf/httpd.conf  bila mengunakan server apache sebagai berikut :
+                  <br>
+                  <IfModule mod_rewrite.c>
+                    <br>
+                      RewriteEngine On
+                      <br>
+                      RewriteCond %{HTTP_HOST} !^(.*\.)?google\.com$ [NC]
+                      <br>
+                      RewriteRule .* - [L,R=403]
+                      <br>
+                  </IfModule>	
+                  <br>
+                   Pastikan e iRule sudah diset untuk bisa melewati bigip. Aturan ini juga mengambil header host dari permintaan kemudian mencocokkannya dengan regex yang memutuskan apakah ia harus mengizinkan permintaan tersebut atau tidak.            
+                  <br>
+                  Location : Server, HTTP.
+              <br>
+                  Referensi : 
+                  <a href="https://medium.com/@mahmud0x/how-to-fix-host-header-injection-9f8a340293aa">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Missing HTTP Strict Transport Security Policy</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi : tambahkan host HTTP dengan script berikut: <br>
+                  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+                  <br>
+                  Location : HTTP.
+              <br>
+                  Referensi : 
+                  <a href="https://hstspreload.org/">Click here..</a> 
+			        <br>
+                </p>
+                <!-- <div class="tm-next">
+                  <a href="OWASP-API-Security-Cheklist.html" class="tm-intro-text tm-btn-primary">Open Doc</a></a>
+                </div> -->
+            </div>
           </div>
-        
-        <div class="col-lg-4 mt-5 mt-lg-0">
-          <i class="fas fa-4x fa-bicycle text-center tm-icon"></i>
-          <h4 class="text-center tm-text-primary mb-4">Nunc sed metus vel nisi</h4>
-          <p>
-            Praesent ut finibus leo. Duis et tempus ipsum, id pretium nunc.
-            Vivamus imperdiet sem quis orci pharetra convallis. Nunc a tempus
-            nisi, sed fringilla purus. In hac habitasse platea.
-          </p>
-        </div>
-        <div class="col-lg-4 mt-5 mt-lg-0">
-          <i class="fas fa-4x fa-city text-center tm-icon"></i>
-          <h4 class="text-center tm-text-primary mb-4">Fusce sed nisi sagittis</h4>
-          <p>
-            Donec vestibulum libero nisl. Curabitur ac orci ac lorem blandit
-            volutpat. Sed ac sodales nibh, ut porttitor elit. Sed id dui mi.
-            Vestibulum ante ipsum primis in faucibus.
-          </p>
         </div>
       </div>
     </section>
-    <section id="work" class="tm-section-pad-top">
-      <div class="container tm-container-gallery">
+    <!-- <section id="work" class="tm-section-pad-top">
+      <div class="container">
         <div class="row">
-          <div class="text-center col-12">
-              <h2 class="tm-text-primary tm-section-title mb-4">Our Work</h2>
-              <p class="mx-auto tm-work-description">
-                "Curabitur ac orci ac lorem blandit volutpat. Sed ac sodales nibh, ut
-                porttitor elit. Sed id dui mi. Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubilia."
+          <div class="col-lg-12">
+            <div class="tm-intro-text-container">
+              <h6 class="tm-text-primary mb-6"><a href="OWASP-API-Security-Cheklist.html">Penetration Testing Modul</a></h6>
+                <p class="mb-4 tm-intro-text">
+                Merupakan sebuah kumpulan informasi terkait kerentanan yang ditemukan dengan cara penetration testing pada web dengan tools tertentu atau sejenisnya.
               </p>
-          </div>            
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="mx-auto tm-gallery-container">
-                    <div class="grid tm-gallery">
-                      <a href="img/gallery-img-01.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-01.jpg" alt="Image" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Dreamy <span>Honey</span> Now</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-02.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-02.jpg" alt="Image" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Second <span>Honey</span> Now</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-03.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-03.jpg" alt="Image" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Third <span>Honey</span> Now</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-04.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-04.jpg" alt="Image" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Dreamy <span>Honey</span> Now</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-05.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-05.jpg" alt="Image" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Fifth <span>Honey</span> Now</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-06.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-06.jpg" alt="Image" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Sixth <span>Honey</span> Now</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-01.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-01.jpg" alt="Image" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Dreamy <span>Honey</span> Now</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-02.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-02.jpg" alt="Image" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Eighth <span>Honey</span> Now</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                </div>                
-            </div>        
+                <p class="mb-5 tm-intro-text">
+                  Informasi terkait hasil dokumentasi OWASP-API-Security-Cheklist. Dalam dokumentasi artikel ini beberapa informasi belum tentu sudah baku, masih ada kemungkinan penambahan atau pengurangan property tergantung akan kebutuhan dan hasil solving Team tenable.
+			        <br>
+		        <bold>Author</bold>
+                </p>
+                <div class="tm-next">
+                  <a href="" class="tm-intro-text tm-btn-primary">Source here</a></a>
+                </div>
+            </div>
           </div>
+        </div>
       </div>
-    </section>
-
+    </section> -->
+    <br>
     <!-- Contact -->
     <section id="contact" class="tm-section-pad-top tm-parallax-2">
       <div class="container tm-container-contact">
         <div class="row">
             <div class="col-12">
-                <h2 class="mb-4 tm-section-title">Contact Us</h2>
+                <h2 class="mb-4 tm-section-title">Contact</h2>
                 <div class="mb-5 tm-underline">
                   <div class="tm-underline-inner"></div>
                 </div>
@@ -235,7 +261,7 @@
               </a>              
             </div>
             <div class="col-sm-12 col-md-6 d-flex align-items-center tm-contact-item">
-              <a href="https://www.google.com/maps" class="tm-contact-item-link">
+              <!-- <a href="https://www.google.com/maps" class="tm-contact-item-link"> -->
                   <i class="fas fa-3x fa-map-marker-alt mr-4"></i>
                   <span class="mb-0">Location on Maps</span>
               </a>              
