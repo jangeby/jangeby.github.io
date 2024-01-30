@@ -66,7 +66,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <img src="img/the-town-01.jpg" alt="Image" class="img-fluid tm-intro-img" />
+            <img src="img/tenable.avif" alt="Image" class="img-fluid tm-intro-img" />
           </div>
           <div class="col-lg-6">
             <div class="tm-intro-text-container">
@@ -200,6 +200,98 @@
                   <a href="https://hstspreload.org/">Click here..</a> 
 			        <br>
                 </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Cookie without SameSite, Httponly dan Secure Attribute</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: Setting cookie tersebut agar memiliki flag samesite dengan attributes yang dapat disesuaikan sendiri (bisa menggunakan lax, strict, atau none). Penambahan cookie bisa dilakukan dalam server yang digunakan contoh seperti nginx atau apache tergantung pemakaian. Contoh penambahan bisa seperti berikut :
+                  <br>
+                  server { 
+                    <br>
+                    location /wait {
+                      <br>
+                      proxy_cookie_path / "/; secure; httponly; samesite=lax atau strict"; <br>
+                    } <br>  
+                  }
+                  <br>
+                  Location : Server, HTTP.
+              <br>
+                  Referensi : 
+                  <a href="https://copyprogramming.com/howto/setting-samesite-none-on-nginx-reverse-proxy">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">SQL Statement Disclosure</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: membuat error handling/error page ketika ada query/sql statement yg gagal di-eksekusi, sehingga tidak menampilkan error sql statement/query secara gamblang
+                  <br>
+                  Location : Script code.
+              <br>
+                  Referensi : 
+                  <a href="">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Password Field With Auto-Complete</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: Off kan fungsi autocomplete pada field password.
+                  <br> "autocomplete=off".
+                  <br>
+                  Location : Script code.
+              <br>
+                  Referensi : 
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Login Form Cross-Site Request Forgery</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: Tambahkan anti-token csrf pada login form.
+                  <br>
+                  Location : Script code.
+              <br>
+                  Referensi : 
+                  <a href="https://www.invicti.com/blog/web-security/protecting-website-using-anti-csrf-token/">Click here..</a> 
+			        <br>
+                </p> 
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">HTTP Trace Allowed</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: Metode HTTP TRACE biasanya tidak diperlukan dalam situs produksi dan oleh karena itu harus dinonaktifkan.
+                  <br>
+                  Tulis script “TraceEnable off” untuk menonaktifkan trace pada bagia server, pastikan restart setelah itu. <br>
+                  Location : Server.
+              <br>
+                  Referensi : 
+                  <a href="https://youtu.be/_zjMrdQoK8g?si=AxYZ3Qlv_bi8Ut5B">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Missing Content Security Policy</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: Konfigurasi content security policy pada website dengan menambahkan atribut ‘content-security-policy’ di http header atau meta tag http-equiv=’content-security-policy’.
+              <br>
+              Location : Server, script header tag.
+              <br>
+                  Referensi : 
+                  <a href="https://csirt.tangerangkota.go.id/berita/content-security-policy">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">PHPinfo Information Disclosure</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Solusi: Hapus page atau bisa dengan melakukan configurasi agar tidak memunculkan infromasi, salah satunya merubah set up ke disable dengan script code "expose_php = off" pada file php.ini . 
+              <br>
+                  Referensi : 
+                  <a href="https://www.a2hosting.com/kb/developer-corner/php/using-php.ini-directives/php-expose-php-directive/">Click here..</a> 
+			        <br>
+                </p> 
                 <!-- <div class="tm-next">
                   <a href="OWASP-API-Security-Cheklist.html" class="tm-intro-text tm-btn-primary">Open Doc</a></a>
                 </div> -->
@@ -241,37 +333,36 @@
                   <div class="tm-underline-inner"></div>
                 </div>
                 <p class="mb-5">
-                  Nullam tincidunt, lacus a suscipit luctus, elit turpis tincidunt dui,
-                  non tempus sem turpis vitae lorem. Maecenas eget odio in sapien ultrices
-                  viverra vitae vel leo. Curabitur at elit eu risus pharetra pellentesque
-                  at at velit.
+                  Terimakasih atas kunjunganya, bila ada informasi lain terkait temuan vulnerability terbaru bisa hubungi kami pada kontak yang sudah tertera.
+		<br> 
+		Author 
                 </p>
             </div>
             
             <div class="col-sm-12 col-md-6 d-flex align-items-center tm-contact-item">
               <a href="tel:0100200340" class="tm-contact-item-link">
                   <i class="fas fa-3x fa-phone mr-4"></i>
-                  <span class="mb-0">08x-xxxx-xxx</span>
+                  <span class="mb-0">+62 881-0111-54817</span>
               </a>              
             </div>
             <div class="col-sm-12 col-md-6 d-flex align-items-center tm-contact-item">
               <a href="mailto:info@company.co" class="tm-contact-item-link">
                   <i class="fas fa-3x fa-envelope mr-4"></i>
-                  <span class="mb-0">febyvalentino1420@gmail.com</span>
+                  <span class="mb-0">feby.zirozudin@paa.co.id</span>
               </a>              
             </div>
             <div class="col-sm-12 col-md-6 d-flex align-items-center tm-contact-item">
-              <!-- <a href="https://www.google.com/maps" class="tm-contact-item-link"> -->
+              <a href="https://maps.app.goo.gl/TVwpT2pUPaQ8bNAx9" class="tm-contact-item-link">
                   <i class="fas fa-3x fa-map-marker-alt mr-4"></i>
                   <span class="mb-0">Location on Maps</span>
               </a>              
             </div>
-            <div class="col-sm-12 col-md-6 d-flex align-items-center tm-contact-item">
+<!--             <div class="col-sm-12 col-md-6 d-flex align-items-center tm-contact-item">
               <form action="" method="get">
                 <input name="email" type="email" placeholder="Subscribe your email" class="tm-input" required />
                 <button type="submit" class="btn tm-btn-submit">Submit</button>
               </form>
-            </div>
+            </div> -->
         </div>
       </div>
       <footer class="text-center small tm-footer">
