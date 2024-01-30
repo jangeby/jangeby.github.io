@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/templatemo-style.css" />
-    
+    <!--
+	The Town
+	https://templatemo.com/tm-525-the-town
+	-->
   </head>
   <body>    
     <!-- Hero section -->
@@ -128,7 +131,7 @@
                   - Server: openresty, Apache/2.4.1 Debian, Nginx/1.18 (*Contoh Hosting Server)
                   <br><br>
                   Berikut ini contoh informasi yang diungkapkan di header Server saat mengakses situs web yang dihosting di Apache : <br>
-                  Server: Apache/2.4.51 Debian (*example server) <br>
+                  Server: Apache/2.4.51 Debian (*exapmle server) <br>
                   Ini dengan jelas mengungkapkan teknologi server, nomor versi dan sistem operasi apa yang digunakan. Untuk menghapus informasi ini dari header respons, tambahkan baris berikut ke file konfigurasi Apache.  Contohnya dengan mengubah file /etc/apache2/apache2.conf, namun file bisa berbeda tergantung pada platform dan konfigurasi setiap developer menyimpanya. <br>
                   ServerTokens Prod <br>
                   ServerSignature Off (bisa di add di server,http,location) <br>
@@ -312,14 +315,25 @@
 			        <br>
                 </p>
                 <p class="mb-4 tm-intro-text">
-                  <h6 class="tm-text-primary mb-8"></h6>
+                  <h6 class="tm-text-primary mb-8">Web Cache Poisoning Denial of Service</h6>
                 </p>
                 <p class="mb-5 tm-intro-text">
+                  Mitigasinya bisa dengan excluding caching di page error mereka. jadi setiap error page, ditambahkan header cache-control: no-store di halaman error agar caching ga dilakukan di halaman error tsb.
                   <br>
                   Location : server, http.
               <br>
                   Referensi : 
-                  <a href="https://ciphersuite.info/">Click here..</a> 
+                  <a href="https://cpdos.org/">Click here..</a> 
+			        <br>
+                </p>
+                <p class="mb-4 tm-intro-text">
+                  <h6 class="tm-text-primary mb-8">Cross-Site Request Forgery Token Validation Bypass</h6>
+                </p>
+                <p class="mb-5 tm-intro-text">
+                  Pastikan token CSRF yang digunakan oleh aplikasi web telah divalidasi dengan benar dan nilai token CSRF tidak boleh divalidasi diprediksi.
+                  <br>
+                  Referensi : 
+                  <a href="https://portswigger.net/web-security/csrf/bypassing-token-validation">Click here..</a> 
 			        <br>
                 </p>
                 <!-- <div class="tm-next">
